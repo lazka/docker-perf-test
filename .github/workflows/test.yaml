@@ -1,0 +1,20 @@
+name: OS Comp Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  docker-hub:
+    runs-on: ubuntu-latest
+    container: mesonbuild/eoan:latest
+    steps:
+    - uses: actions/checkout@v2
+
+  github:
+    runs-on: ubuntu-latest
+    container: ghcr.io/lazka/test:latest
+    steps:
+    - uses: actions/checkout@v2
